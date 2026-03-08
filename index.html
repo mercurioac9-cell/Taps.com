@@ -1,0 +1,217 @@
+q<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día Internacional de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#ff7eb3,#8e44ad);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.contenedor{
+background: rgba(0,0,0,0.35);
+padding:40px;
+border-radius:20px;
+width:80%;
+max-width:600px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+animation: aparecer 2s ease;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+}
+
+.boton{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:white;
+color:#8e44ad;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.boton:hover{
+background:#ffd6f5;
+transform:scale(1.1);
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.flor{
+position:absolute;
+font-size:30px;
+animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar{
+0%{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-10vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* MENSAJE ESPECIAL */
+
+.mensajeEspecial{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.cajaMensaje{
+background:linear-gradient(135deg,#ff9ad5,#a66cff);
+padding:40px;
+border-radius:20px;
+width:80%;
+max-width:500px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+animation: zoom 0.6s ease;
+}
+
+.cajaMensaje button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+font-size:16px;
+}
+
+@keyframes zoom{
+from{
+transform:scale(0.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🌸 8 de Marzo 🌸</h1>
+<h2>Día Internacional de la Mujer</h2>
+
+<p>
+Hoy celebramos la fuerza, valentía e inteligencia de todas las mujeres del mundo.
+Cada una de ellas inspira, lucha, sueña y construye un futuro mejor.
+</p>
+
+<p>
+Gracias por su valentía, por su amor y por nunca rendirse.
+💜 ¡Feliz Día de la Mujer! 💜
+</p>
+
+<button class="boton" onclick="abrirMensaje()">Presiona aquí</button>
+
+</div>
+
+<!-- MENSAJE QUE APARECE DESPUÉS -->
+
+<div id="mensajeEspecial" class="mensajeEspecial">
+
+<div class="cajaMensaje">
+
+<h2>💜 Mensaje especial 💜</h2>
+
+<p>
+Las mujeres no solo cambian el mundo…
+lo hacen más fuerte, más sabio y más hermoso.
+</p>
+
+<p>
+Hoy celebramos su valentía, su inteligencia
+y todo lo que aportan cada día. 🌸
+</p>
+
+<p>
+✨ ¡Que nunca falten los sueños, la libertad
+y las oportunidades para cada mujer! ✨
+</p>
+
+<button onclick="cerrarMensaje()">Cerrar</button>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirMensaje(){
+document.getElementById("mensajeEspecial").style.display="flex";
+}
+
+function cerrarMensaje(){
+document.getElementById("mensajeEspecial").style.display="none";
+}
+
+function crearFlor(){
+const flor = document.createElement("div");
+flor.classList.add("flor");
+flor.innerHTML = "🌸";
+flor.style.left = Math.random()*100+"vw";
+flor.style.animationDuration = (Math.random()*3+3)+"s";
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},6000);
+}
+
+setInterval(crearFlor,800);
+
+</script>
+
+</body>
+</html>
